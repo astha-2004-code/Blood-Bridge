@@ -1,20 +1,32 @@
-const express = require('express')
+const express = require('express');
+const dotenv = require('dotenv');
+const colors = require('colors');
+const morgan = require('morgan');
+const cors = require('cors');
+const connectDB = require('./config/db');
 
-//rest object
-const app = express()
+// dot config
+dotenv.config();
 
-//routes
-//1.test route
-app.get('/', (req, res) => {
-	res.status(200).json({
-		message: "Welcome to Blood Bank App",
-	});
-});
+// mongodb connection
+connectDB();
 
-//port
-const PORT = 8080;
+// rest object
+const app = express();
 
-//listen
+// middlewares
+app.use(express.json());
+app.use(cors());
+app.use(morgan('dev'));
+
+// routes
+// 1. test route
+app.use('/api/v1/test', require('./routes/testRoutes'));
+
+// port
+const PORT = process.env.PORT || 8080;
+
+// listen
 app.listen(PORT, () => {
-	console.log("Node Server Running");
+  console.log(`Node Server Running in ${process.env.DEV_MODE} Mode on Port ${PORT}`.bgBlue.white);
 });
