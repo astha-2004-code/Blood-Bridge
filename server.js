@@ -22,11 +22,9 @@ app.use(morgan('dev'));
 // routes
 // 1. test route
 app.use('/api/v1/test', require('./routes/testRoutes'));
+app.use('/api/v1/auth', require('./routes/authRoutes'));
 
 // port
 const PORT = process.env.PORT || 8080;
 
-// listen
-app.listen(PORT, () => {
-  console.log(`Node Server Running in ${process.env.DEV_MODE} Mode on Port ${PORT}`.bgBlue.white);
-});
+app.listen(8080, () => console.log("Server running on port 8080"));
