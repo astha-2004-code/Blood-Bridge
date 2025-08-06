@@ -29,15 +29,7 @@ const registerController = async (req, res) => {
     return res.status(201).send({
       success: true,
       message: "User registered successfully",
-      user: {
-      _id: user._id,
-      role: user.role,
-      organisationName: user.organisationName,
-      email: user.email,
-      address: user.address,
-      phone: user.phone
-    }
-});
+    });
   } catch (error) {
     console.log("Register Error:", error);
     res.status(500).send({
@@ -61,13 +53,6 @@ const loginController = async (req, res) => {
         success: false,
         message: "Invalid credentials",
       });
-    }
-    //check role
-    if (user.role !== req.body.role) {
-      return res.status(500).send({
-        success: false,
-        message:'role does not match',
-      })
     }
 
     // Compare password
