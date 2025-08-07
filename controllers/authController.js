@@ -55,7 +55,6 @@ const loginController = async (req, res) => {
       });
     }
 
-    // Compare password
     const isMatch = await bcrypt.compare(req.body.password, user.password);
 
     if (!isMatch) {
@@ -65,7 +64,6 @@ const loginController = async (req, res) => {
       });
     }
 
-    // Create token
     const token = jwt.sign(
       { userId: user._id },
       process.env.JWT_SECRET,
@@ -76,7 +74,11 @@ const loginController = async (req, res) => {
       success: true,
       message: "Login successful",
       token,
-      user,
+      user: {
+        _id: user._id,
+        name: user.name,
+        email: user.email
+      }
     });
   } catch (error) {
     console.log("Login Error:", error);
