@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import InputType from './InputType';
+import{Link} from "react-router-dom"
+import { handleLogin, handleRegister } from '../../../services/authService';
 
 const Form = ({ formType, submitBtn, formTitle }) => {
   const [email, setEmail] = useState("");
@@ -12,7 +14,7 @@ const Form = ({ formType, submitBtn, formTitle }) => {
   const [address, setAddress] = useState("");
   const [phone, setPhone] = useState("");
 
-  const handleSubmit = (e) => {
+ const handleSubmit = (e) => {
     e.preventDefault();
     console.log("Form submitted");
     // You can handle form submission here
@@ -20,7 +22,10 @@ const Form = ({ formType, submitBtn, formTitle }) => {
 
   return (
     <div>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={(e) => {
+        if (formType === 'login') return handleLogin(e, email, password,role)
+        else if(formType==='register') return handleRegister(e,name,role,email,password,organisationName,phone,address,hospitalName,website)
+      }}>
         <h1 className='text-center'>{formTitle}</h1>
 			  <hr />
 			  <div className='d-flex mb-3'>
@@ -159,7 +164,16 @@ const Form = ({ formType, submitBtn, formTitle }) => {
           }
         })()}
 
-        <div className='d-flex'>
+        <div className="d-flex flex-row justify-content-between">
+          {formType === 'login' ? (
+            <p>Not registerd yet?Register
+              <Link to="/Register"> Here!</Link>
+            </p>
+          ):(<p>Already user please
+              <Link to="/Login"> Login!</Link>
+          </p>
+          )}
+
           <button className='btn btn-primary' type="submit">
             {submitBtn}
           </button>
