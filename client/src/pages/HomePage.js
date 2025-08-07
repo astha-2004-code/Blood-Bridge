@@ -1,11 +1,22 @@
-import React from 'react'
+import React from "react";
+import { useSelector } from "react-redux";
+import Spinner from "../components/shared/Spinner";
 
 const HomePage = () => {
-  return (
-	  <div>
-		  <h1>HomePage</h1>
-	  </div>
-  )
-}
+  const { loading, error } = useSelector((state) => state.auth);
 
-export default HomePage
+  return (
+    <>
+      {error && alert(error)}
+      {loading ? (
+        <Spinner />
+      ) : (
+        <>
+          <h1>Home Page</h1>
+        </>
+      )}
+    </>
+  );
+};
+
+export default HomePage;
