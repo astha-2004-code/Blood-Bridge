@@ -1,37 +1,69 @@
-.sidebar {
-  height: 100vh !important;
-  /* border-radius: 5px; */
-  background-color: #2e3200;
-  box-shadow: 0 0 2px gray;
-  color: white;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  /* overflow: hidden; */
 }
 
-.menu {
-  padding-top: 100px;
+/* ===========
+==== FORM
+=========== */
+
+.form-banner img {
+  height: 100%;
+  width: 100%;
 }
 
-.menu-item {
-  padding-top: 30px;
+.form-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
 }
 
-.menu-item a {
-  color: white;
-  text-decoration: none;
-  font-size: 1.2rem;
+/* =============
+====== laoder 
+=============== */
+.loader-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.3);
 }
 
-.menu-item i {
-  font-size: 1.2rem;
-  margin: 0 15px;
-  color: white;
+.loader {
+  width: 48px;
+  height: 48px;
+  border: 5px solid #fff;
+  border-bottom-color: #ff3d00;
+  border-radius: 50%;
+  display: inline-block;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
 }
 
-.active {
-  background-color: white;
-  padding: 10px;
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
-.active a,
-.active i {
-  color: #2e3200;
+/* ======================
+--------- navbar 
+=================== */
+
+.navbar {
+  background-color: black !important;
+  color: white !important;
+}
+
+.nav-link,
+.navbar-brand {
+  background-color: black !important;
+  color: white !important;
 }

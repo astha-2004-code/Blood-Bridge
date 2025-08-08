@@ -1,38 +1,22 @@
-const jwt = require('jsonwebtoken');
-
+const userModel = require("../models/userModel");
 module.exports = async (req, res, next) => {
   try {
-    const authHeader = req.headers['authorization'];
-
-    if (!authHeader || !authHeader.startsWith('Bearer ')) {
+    const user = await userModel.findById(req.body.userId);
+    //check admin
+    if (user?.role !== "admin") {
       return res.status(401).send({
         success: false,
-        message: 'No token provided',
+        message: "AUth Fialed",
       });
-    }
-
-    const token = authHeader.split(' ')[1];
-
-    jwt.verify(token, process.env.JWT_SECRET, (err, decode) => {
-      if (err) {
-        return res.status(401).send({
-          success: false,
-          message: 'Invalid token',
-        });
-      }
-
-      console.log('Decoded token:', decode);
-
-      // ✅ FIXED: Use correct variable name
-      req.user = { userId: decode.userId };
+    } else {
       next();
-    });
+    }
   } catch (error) {
-    console.log('Auth Middleware Error:', error);
+    console.log(error);
     return res.status(401).send({
       success: false,
-      message: 'Auth Failed',
-      error,
+      message: "Auth Failed, ADMIN API",
+      errro,
     });
   }
 };
