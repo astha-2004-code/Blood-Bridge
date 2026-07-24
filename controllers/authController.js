@@ -4,9 +4,22 @@ const jwt = require("jsonwebtoken");
 
 const registerController = async (req, res) => {
   try {
+    console.log("Registration Request Payload:", { ...req.body, password: "[REDACTED]" });
+
+    // Validate role
+    const validRoles = ["admin", "organisation", "donar", "hospital"];
+    if (!req.body.role || !validRoles.includes(req.body.role)) {
+      console.warn(`Registration rejected: Invalid role "${req.body.role}"`);
+      return res.status(400).send({
+        success: false,
+        message: `Invalid role: ${req.body.role}. Allowed roles are admin, organisation, donar, hospital.`,
+      });
+    }
+
     const exisitingUser = await userModel.findOne({ email: req.body.email });
     //validation
     if (exisitingUser) {
+      console.warn(`Registration rejected: User with email "${req.body.email}" already exists`);
       return res.status(200).send({
         success: false,
         message: "User ALready exists",
