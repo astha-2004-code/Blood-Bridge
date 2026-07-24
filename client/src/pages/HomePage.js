@@ -6,6 +6,7 @@ import Layout from "../components/shared/Layout/Layout";
 import Modal from "../components/shared/modal/Modal";
 import API from "../services/API";
 import moment from "moment";
+import { toast } from "react-toastify";
 
 const HomePage = () => {
   const { loading, error, user } = useSelector((state) => state.auth);
@@ -35,9 +36,14 @@ const HomePage = () => {
     }
   }, [user, navigate]);
 
+  useEffect(() => {
+    if (error) {
+      toast.error(error);
+    }
+  }, [error]);
+
   return (
     <Layout>
-      {error && <span>{alert(error)}</span>}
       {loading ? (
         <Spinner />
       ) : (

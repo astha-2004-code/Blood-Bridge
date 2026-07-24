@@ -45,14 +45,20 @@ const allowedOrigins = [
   process.env.CLIENT_URL,
   "http://localhost:3000",
   "http://localhost:5173"
-].filter(Boolean);
+]
+  .filter(Boolean)
+  .map((o) => o.replace(/\/$/, ""));
 
 const corsOptions = {
   origin: function (origin, callback) {
-    if (!origin || allowedOrigins.indexOf(origin) !== -1) {
+    if (!origin) {
+      return callback(null, true);
+    }
+    const sanitizedOrigin = origin.replace(/\/$/, "");
+    if (allowedOrigins.indexOf(sanitizedOrigin) !== -1) {
       callback(null, true);
     } else {
-      callback(new Error("Not allowed by CORS"));
+      callback(new Error(`Not allowed by CORS: ${origin}`));
     }
   },
   credentials: true,
