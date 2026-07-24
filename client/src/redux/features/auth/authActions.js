@@ -11,8 +11,10 @@ export const userLogin = createAsyncThunk(
         alert(data.message);
         localStorage.setItem("token", data.token);
         window.location.replace("/");
+        return data;
+      } else {
+        return rejectWithValue(data?.message || "Login failed");
       }
-      return data;
     } catch (error) {
       if (error.response && error.response.data.message) {
         return rejectWithValue(error.response.data.message);
@@ -55,7 +57,9 @@ export const userRegister = createAsyncThunk(
       if (data?.success) {
         alert("User Registerd Successfully");
         window.location.replace("/login");
-        // toast.success("User Registerd Successfully");
+        return data;
+      } else {
+        return rejectWithValue(data?.message || "Registration failed");
       }
     } catch (error) {
       console.log(error);
