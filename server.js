@@ -18,11 +18,15 @@ if (process.env.NODE_ENV !== "production") {
 }
 
 // Validate required environment variables
-const requiredEnvVars = ["MONGO_URL", "JWT_SECRET", "CLIENT_URL"];
+const requiredEnvVars = ["MONGO_URL", "JWT_SECRET"];
 const missingEnvVars = requiredEnvVars.filter((v) => !process.env[v]);
 if (missingEnvVars.length > 0) {
   console.error(`[Fatal Startup Error] Missing environment variables: ${missingEnvVars.join(", ")}`);
   process.exit(1);
+}
+
+if (!process.env.CLIENT_URL) {
+  console.warn(`[Warning] CLIENT_URL environment variable is not set. CORS will default to localhost.`);
 }
 
 // Connect to Database
@@ -41,7 +45,7 @@ const allowedOrigins = [
   process.env.CLIENT_URL,
   "http://localhost:3000",
   "http://localhost:5173"
-];
+].filter(Boolean);
 
 const corsOptions = {
   origin: function (origin, callback) {
