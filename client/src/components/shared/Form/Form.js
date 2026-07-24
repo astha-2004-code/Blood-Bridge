@@ -45,9 +45,9 @@ const Form = ({ formType, submitBtn, formTitle }) => {
               id="donarRadio"
               value={"donar"}
               onChange={(e) => setRole(e.target.value)}
-              defaultChecked
+              checked={role === "donar"}
             />
-            <label htmlFor="adminRadio" className="form-check-label">
+            <label htmlFor="donarRadio" className="form-check-label">
               Donar
             </label>
           </div>
@@ -59,6 +59,7 @@ const Form = ({ formType, submitBtn, formTitle }) => {
               id="adminRadio"
               value={"admin"}
               onChange={(e) => setRole(e.target.value)}
+              checked={role === "admin"}
             />
             <label htmlFor="adminRadio" className="form-check-label">
               Admin
@@ -72,6 +73,7 @@ const Form = ({ formType, submitBtn, formTitle }) => {
               id="hospitalRadio"
               value={"hospital"}
               onChange={(e) => setRole(e.target.value)}
+              checked={role === "hospital"}
             />
             <label htmlFor="hospitalRadio" className="form-check-label">
               Hospital
@@ -85,6 +87,7 @@ const Form = ({ formType, submitBtn, formTitle }) => {
               id="organisationRadio"
               value={"organisation"}
               onChange={(e) => setRole(e.target.value)}
+              checked={role === "organisation"}
             />
             <label htmlFor="organisationRadio" className="form-check-label">
               Organisation

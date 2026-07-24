@@ -16,6 +16,14 @@ const registerController = async (req, res) => {
     const salt = await bcrypt.genSalt(10);
     const hashedPassword = await bcrypt.hash(req.body.password, salt);
     req.body.password = hashedPassword;
+
+    // Clean empty string fields to prevent duplicate key errors in MongoDB for optional unique indexes
+    Object.keys(req.body).forEach((key) => {
+      if (req.body[key] === "") {
+        delete req.body[key];
+      }
+    });
+
     //rest data
     const user = new userModel(req.body);
     await user.save();
