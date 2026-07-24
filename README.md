@@ -1,46 +1,141 @@
 # 🩸 Blood Bridge - MERN Stack Blood Bank Application
 
-**Blood Bridge** is a premium, fully featured MERN Stack platform designed to bridge the gap between Blood Donors, Hospitals, Organizations, and Administrators. It manages real-time blood inventory, tracks donations, facilitates consumer requests, and provides analytical insights through a clean, modern user dashboard.
+<p align="center">
+  <img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" alt="React" />
+  <img src="https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white" alt="Node.js" />
+  <img src="https://img.shields.io/badge/Express.js-000000?style=for-the-badge&logo=express&logoColor=white" alt="Express.js" />
+  <img src="https://img.shields.io/badge/MongoDB-47A248?style=for-the-badge&logo=mongodb&logoColor=white" alt="MongoDB" />
+  <br />
+  <img src="https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white" alt="Vercel" />
+  <img src="https://img.shields.io/badge/Railway-0B0D17?style=for-the-badge&logo=railway&logoColor=white" alt="Railway" />
+  <img src="https://img.shields.io/badge/JWT-black?style=for-the-badge&logo=JSON%20web%20tokens" alt="JWT" />
+  <img src="https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge" alt="License" />
+</p>
 
 ---
 
-## 🚀 Key Features
+## 🔗 Deployed Links
 
-### 👤 Role-Based Portals & Dashboards
-* **Admin Dashboard**: Manage user accounts (Donors, Hospitals, Organizations) and monitor overall platform activities with safety validations.
-* **Donor Portal**: Track donation history, view total blood donated, and manage profile information.
-* **Hospital Portal**: Submit real-time blood requirements, track consumed blood inventory, and view logs of previous requests.
-* **Organization Portal**: Organize blood donation camps, manage blood inventory check-ins (In) and check-outs (Out), and track interactions with both Donors and Hospitals.
-
-### 📊 Real-Time Analytics
-* Interactive analytics dashboard displaying live inventory status by Blood Group (`A+`, `A-`, `B+`, `B-`, `AB+`, `AB-`, `O+`, `O-`).
-* Real-time indicators of total incoming (donated) vs. outgoing (consumed) blood volumes.
-
-### 🔒 Enterprise Security
-* Secured JWT (JSON Web Token) authentication and cookie-based authorization.
-* Custom middleware to enforce role-based route access controls (Admin-only, Organization-only, etc.).
-* Password hashing using bcryptjs.
+💻 **Live Demo**: [https://blood-bridge-self.vercel.app/login](https://blood-bridge-self.vercel.app/login)  
+📦 **GitHub Repository**: [https://github.com/astha-2004-code/Blood-Bridge](https://github.com/astha-2004-code/Blood-Bridge)
 
 ---
 
-## 🛠️ Technology Stack
+## 📖 About the Project
 
-| Layer | Technology | Description |
-| :--- | :--- | :--- |
-| **Frontend** | React.js | Dynamic UI component architecture |
-| **State Management** | Redux Toolkit | Centralized state management & async logic |
-| **Styling** | Bootstrap 5 & FontAwesome | Sleek, responsive design & iconography |
-| **Backend** | Node.js & Express.js | Robust RESTful API & server logic |
-| **Database** | MongoDB & Mongoose | Document database & object-relational mapping |
-| **Auth** | JSON Web Tokens (JWT) | Safe session-less API authentication |
+**Blood Bridge** is a premium, full-stack MERN web application designed to connect Blood Donors, Hospitals, Organizations, and Administrators on a single, secure platform. It manages real-time blood inventory, tracks donations, facilitates consumer requests, and provides analytical insights through clean, responsive dashboards.
+
+The platform supports four user roles, each with a custom dashboard and restricted features:
+
+* 🩸 **Donor**: Track personal blood donation history, view total blood donated, and manage profile information.
+* 🏥 **Hospital**: Submit blood consumption requests, manage inventory logs, and view previous transactions.
+* 🏢 **Organization**: Organize blood donation events, manage inventory check-ins (`In`) and check-outs (`Out`), and track interactions with Donors and Hospitals.
+* 👨‍💼 **Admin**: Manage user accounts (Donors, Hospitals, Organizations) with validation controls and perform delete operations.
 
 ---
 
-## 📦 Installation & Setup
+## 🗂️ Table of Contents
 
-### Prerequisites
-* [Node.js](https://nodejs.org/) (v16+ recommended)
-* [MongoDB Atlas](https://www.mongodb.com/cloud/atlas) or local MongoDB instance
+1. [Features](#-features)
+2. [Tech Stack](#-tech-stack)
+3. [Folder Structure](#-folder-structure)
+4. [Screenshots](#-screenshots)
+5. [Installation & Setup](#-installation--setup)
+6. [Environment Variables](#-environment-variables)
+7. [Running Locally](#-running-locally)
+8. [Future Enhancements](#-future-enhancements)
+9. [Contributing](#-contributing)
+10. [License](#-license)
+11. [Contact](#-contact)
+
+---
+
+## 🚀 Features
+
+* **Secure JWT Authentication**: Stateless user sessions with token verification.
+* **Role-Based Authorization**: Protected frontend routes and backend APIs restricted by role validation.
+* **Responsive UI Layouts**: Styled using Bootstrap 5, fully adapted for mobile, tablet, and desktop views.
+* **Blood Inventory Management**: Log incoming (`In`) donations and outgoing (`Out`) consumption transactions.
+* **Database Sanitization**: Clean checks to strip empty inputs, preventing duplicate keys on optional fields in MongoDB.
+* **Real-time Analytics**: Grid dashboard displaying total blood inventory volume by type (`A+`, `A-`, `B+`, `B-`, `AB+`, `AB-`, `O+`, `O-`).
+* **Enhanced Notifications**: Toast alert notifications powered by `react-toastify` for validation errors and successes.
+
+---
+
+## 🛠️ Tech Stack
+
+### Frontend
+* **Core**: React.js, React Hooks
+* **State Management**: Redux Toolkit (Thunks & Slices)
+* **Routing**: React Router DOM (v6)
+* **Styling**: Bootstrap 5, Vanilla CSS, FontAwesome Iconography
+* **API Client**: Axios
+
+### Backend
+* **Runtime**: Node.js
+* **Framework**: Express.js
+* **Authentication**: JSON Web Tokens (JWT)
+* **Security**: bcryptjs password hashing, CORS configuration
+* **Middleware**: Custom router authentication and administrator validation
+
+### Database
+* **Database**: MongoDB Atlas
+* **Object Modeling**: Mongoose
+
+---
+
+## 📂 Folder Structure
+
+```text
+Blood-Bridge/
+├── client/                     # React Frontend Application
+│   ├── public/                 # Static public files (HTML, favicon)
+│   └── src/
+│       ├── components/         # Common Layout, Sidebar, Header & Forms
+│       ├── pages/              # Admin, Auth (Login/Register), and Dashboard Pages
+│       ├── redux/              # Redux Toolkit Slices, Thunks, and Store Config
+│       └── services/           # Axios Base Config & Auth Handlers
+├── config/                     # MongoDB connection setup
+├── controllers/                # REST API Endpoint request controllers
+├── middlewares/                # Custom JWT & Admin role verification middlewares
+├── models/                     # Mongoose Schema Definitions (User, Inventory)
+├── routes/                     # Express Router APIs
+└── server.js                   # Main application entry point
+```
+
+---
+
+## 📸 Screenshots
+
+### Login Page
+`[Screenshot Placeholder: Login Page]`
+
+### Register Page
+`[Screenshot Placeholder: Register Page]`
+
+### Donor Dashboard
+`[Screenshot Placeholder: Donor Dashboard]`
+
+### Hospital Dashboard
+`[Screenshot Placeholder: Hospital Dashboard]`
+
+### Organization Dashboard
+`[Screenshot Placeholder: Organization Dashboard]`
+
+### Admin Dashboard
+`[Screenshot Placeholder: Admin Dashboard]`
+
+### Inventory Page
+`[Screenshot Placeholder: Inventory Page]`
+
+### Analytics Page
+`[Screenshot Placeholder: Analytics Page]`
+
+---
+
+## ⚙️ Installation & Setup
+
+Follow these steps to run the project locally on your machine:
 
 ### Step 1: Clone the Repository
 ```bash
@@ -48,84 +143,91 @@ git clone https://github.com/astha-2004-code/Blood-Bridge.git
 cd Blood-Bridge
 ```
 
-### Step 2: Server-Side Configuration
-1. Install backend dependencies:
-   ```bash
-   npm install
-   ```
-2. Create a `.env` file in the root directory and add the following keys:
-   ```env
-   PORT=8080
-   MONGO_URL=mongodb+srv://<username>:<password>@cluster.mongodb.net/bloodbridge
-   JWT_SECRET=your_jwt_secret_key_here
-   ```
+### Step 2: Install Backend Dependencies
+In the root directory, run:
+```bash
+npm install
+```
 
-### Step 3: Client-Side Configuration
-1. Install frontend dependencies:
-   ```bash
-   cd client
-   npm install
-   ```
-2. Create a `.env` file in the `client/` directory and add the following:
-   ```env
-   REACT_APP_BASEURL=http://localhost:8080/api/v1
-   ```
+### Step 3: Install Frontend Dependencies
+```bash
+cd client
+npm install
+```
+
+---
+
+## 🔑 Environment Variables
+
+### Backend Configuration
+Create a `.env` file in the **root** directory of the project:
+```env
+PORT=8080
+MONGO_URL=your_mongodb_connection_string
+JWT_SECRET=your_jwt_secret_token
+NODE_ENV=production
+CLIENT_URL=your_vercel_frontend_url
+```
+
+### Frontend Configuration
+Create a `.env` file in the **`client/`** directory of the project:
+```env
+REACT_APP_BASEURL=your_railway_backend_url/api/v1
+```
 
 ---
 
 ## 🏃 Running the Application
 
-To run both the server and client concurrently in development mode, go back to the root directory and execute:
-
+### Backend Server
+In the root directory, execute:
 ```bash
-npm run dev
+npm run server
 ```
 
-* **Backend Server**: Runs on [http://localhost:8080](http://localhost:8080)
-* **Frontend Web App**: Runs on [http://localhost:3000](http://localhost:3000)
+### Frontend Server
+In a new terminal window, navigate to the `client` directory and start the development server:
+```bash
+cd client
+npm start
+```
+
+* **Frontend Localhost URL**: [http://localhost:3000](http://localhost:3000)
+* **Backend Localhost URL**: [http://localhost:8080](http://localhost:8080)
 
 ---
 
-## 📂 Project Directory Structure
+## 🔮 Future Enhancements
 
-```text
-Blood-Bridge/
-├── client/                 # React Frontend Application
-│   ├── public/             # Public assets & HTML templates
-│   └── src/
-│       ├── components/     # Reusable layout & form components
-│       ├── pages/          # Admin, Auth, and Dashboard pages
-│       ├── redux/          # Redux Toolkit slices & store configuration
-│       └── services/       # Axios API client handlers
-├── config/                 # Database connector settings
-├── controllers/            # API Route logic handlers
-├── middlewares/            # JWT validation and Role checkers
-├── models/                 # Mongoose Database schemas (User, Inventory)
-├── routes/                 # Express API endpoint definitions
-└── server.js               # Application Entry Point
-```
+* **Email Notifications**: Automatically send emails to donors once their donation is processed or when an organization creates a camp.
+* **Google Maps Integration**: Locate nearby blood banks and hospitals based on geographical location.
+* **AI-based Blood Demand Prediction**: Leverage machine learning to forecast blood group demands based on seasonal usage trends.
+* **Dark Mode**: Add sleek, dark-themed toggles to enhance dashboard visuals.
+* **Real-time Notifications**: Notify hospitals when requested blood groups become available using Socket.IO.
+* **Mobile Application**: Port the project using React Native or Flutter to support mobile devices.
 
 ---
 
-## 🔗 Key API Endpoints
+## 🤝 Contributing
 
-### 🔐 Authentication
-* `POST /api/v1/auth/register` - Register a new User (Donor, Hospital, or Organization)
-* `POST /api/v1/auth/login` - Login to account
-* `GET /api/v1/auth/current-user` - Retrieve active user profile
+Contributions are welcome! Please follow these steps:
 
-### 🩸 Inventory Management
-* `POST /api/v1/inventory/create-inventory` - Add an In/Out blood transaction record
-* `GET /api/v1/inventory/get-inventory` - Fetch inventory log records
-* `POST /api/v1/inventory/get-inventory-hospital` - Fetch blood consumption logs for a hospital
-
-### 👥 Admin Actions
-* `GET /api/v1/admin/donor-list` - Fetch all registered Donors
-* `GET /api/v1/admin/hospital-list` - Fetch all registered Hospitals
-* `GET /api/v1/admin/org-list` - Fetch all registered Organizations
-* `DELETE /api/v1/admin/delete-donor/:id` - Remove a donor/user account
+1. **Fork** the project repository.
+2. Create a new feature branch (`git checkout -b feature/NewFeature`).
+3. Commit your changes (`git commit -m 'Add some NewFeature'`).
+4. Push to the branch (`git push origin feature/NewFeature`).
+5. Open a **Pull Request**.
 
 ---
 
 ## 📄 License
-This project is licensed under the [ISC License](https://opensource.org/licenses/ISC).
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+---
+
+## ✉️ Contact
+
+* **Email**: your.email@example.com
+* **LinkedIn**: [linkedin.com/in/your-profile](https://linkedin.com/in/your-profile)
+* **GitHub**: [github.com/your-username](https://github.com/your-username)
