@@ -34,21 +34,6 @@ The platform supports four user roles, each with a custom dashboard and restrict
 
 ---
 
-## 🗂️ Table of Contents
-
-1. [Features](#-features)
-2. [Tech Stack](#-tech-stack)
-3. [Folder Structure](#-folder-structure)
-4. [Screenshots](#-screenshots)
-5. [Installation & Setup](#-installation--setup)
-6. [Environment Variables](#-environment-variables)
-7. [Running Locally](#-running-locally)
-8. [Future Enhancements](#-future-enhancements)
-9. [Contributing](#-contributing)
-10. [License](#-license)
-11. [Contact](#-contact)
-
----
 
 ## 🚀 Features
 
@@ -102,34 +87,6 @@ Blood-Bridge/
 ├── routes/                     # Express Router APIs
 └── server.js                   # Main application entry point
 ```
-
----
-
-## 📸 Screenshots
-
-### Login Page
-`[Screenshot Placeholder: Login Page]`
-
-### Register Page
-`[Screenshot Placeholder: Register Page]`
-
-### Donor Dashboard
-`[Screenshot Placeholder: Donor Dashboard]`
-
-### Hospital Dashboard
-`[Screenshot Placeholder: Hospital Dashboard]`
-
-### Organization Dashboard
-`[Screenshot Placeholder: Organization Dashboard]`
-
-### Admin Dashboard
-`[Screenshot Placeholder: Admin Dashboard]`
-
-### Inventory Page
-`[Screenshot Placeholder: Inventory Page]`
-
-### Analytics Page
-`[Screenshot Placeholder: Analytics Page]`
 
 ---
 
@@ -220,14 +177,7 @@ Contributions are welcome! Please follow these steps:
 
 ---
 
-## 📄 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
----
-
 ## ✉️ Contact
 
-* **Email**: your.email@example.com
-* **LinkedIn**: [linkedin.com/in/your-profile](https://linkedin.com/in/your-profile)
-* **GitHub**: [github.com/your-username](https://github.com/your-username)
+* **LinkedIn**: [linkedin](https://www.linkedin.com/in/astha-jha-2oo4/)
+* **GitHub**: [github](https://github.com/astha-2004-code)
