@@ -170,8 +170,11 @@ const getDonarsController = async (req, res) => {
     const donorId = await inventoryModel.distinct("donar", {
       organisation,
     });
-    // console.log(donorId);
-    const donars = await userModel.find({ _id: { $in: donorId } });
+    // Find users with donor IDs whose role is strictly "donar"
+    const donars = await userModel.find({
+      _id: { $in: donorId },
+      role: "donar",
+    });
 
     return res.status(200).send({
       success: true,
@@ -191,13 +194,19 @@ const getDonarsController = async (req, res) => {
 const getHospitalController = async (req, res) => {
   try {
     const organisation = req.body.userId;
-    //GET HOSPITAL ID
-    const hospitalId = await inventoryModel.distinct("hospital", {
+    // GET HOSPITAL IDs from hospital field (for OUT transactions)
+    const hospitalIdFromOut = await inventoryModel.distinct("hospital", {
       organisation,
     });
-    //FIND HOSPITAL
+    // GET HOSPITAL IDs from donar field (for IN donations where a hospital donated)
+    const hospitalIdFromIn = await inventoryModel.distinct("donar", {
+      organisation,
+    });
+    // Combine and find all users whose role is strictly "hospital"
+    const combinedIds = [...hospitalIdFromOut, ...hospitalIdFromIn];
     const hospitals = await userModel.find({
-      _id: { $in: hospitalId },
+      _id: { $in: combinedIds },
+      role: "hospital",
     });
     return res.status(200).send({
       success: true,
@@ -241,7 +250,10 @@ const getOrgnaisationController = async (req, res) => {
 const getOrgnaisationForHospitalController = async (req, res) => {
   try {
     const hospital = req.body.userId;
-    const orgId = await inventoryModel.distinct("organisation", { hospital });
+    // The hospital could be in either the 'hospital' field (for OUT transactions) or 'donar' field (for IN donations)
+    const orgId = await inventoryModel.distinct("organisation", {
+      $or: [{ hospital }, { donar: hospital }],
+    });
     //find org
     const organisations = await userModel.find({
       _id: { $in: orgId },
