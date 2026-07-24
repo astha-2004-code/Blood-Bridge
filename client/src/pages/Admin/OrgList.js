@@ -6,19 +6,18 @@ import API from "../../services/API";
 const OrgList = () => {
   const [data, setData] = useState([]);
   //find donar records
-  const getDonars = async () => {
-    try {
-      const { data } = await API.get("/admin/org-list");
-      console.log(data);
-      if (data?.success) {
-        setData(data?.orgData);
-      }
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
   useEffect(() => {
+    const getDonars = async () => {
+      try {
+        const { data } = await API.get("/admin/org-list");
+        console.log(data);
+        if (data?.success) {
+          setData(data?.orgData);
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    };
     getDonars();
   }, []);
 

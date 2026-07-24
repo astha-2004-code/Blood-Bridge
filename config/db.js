@@ -9,7 +9,8 @@ const connectDB = async () => {
         .white
     );
   } catch (error) {
-    console.log(`Mongodb Database Error ${error}`.bgRed.white);
+    console.error(`Mongodb Database Connection Error: ${error.message}`);
+    process.exit(1);
   }
 };
 
