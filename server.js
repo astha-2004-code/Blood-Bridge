@@ -45,7 +45,7 @@ const allowedOrigins = [
   process.env.CLIENT_URL,
   "http://localhost:3000",
   "http://localhost:5173",
-  "https://blood-bridge-ekwzbukkt-astha-2004-codes-projects.vercel.app"
+  "https://blood-bridge-self.vercel.app"
 ]
   .filter(Boolean)
   .map((o) => o.replace(/\/$/, ""));
