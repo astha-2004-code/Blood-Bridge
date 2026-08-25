@@ -43,6 +43,8 @@ app.use(express.json());
 // CORS configuration
 const allowedOrigins = [
   process.env.CLIENT_URL,
+  process.env.FRONTEND_URL,
+  "https://blood-bridge-self.vercel.app",
   "http://localhost:3000",
   "http://localhost:5173"
 ]
@@ -56,15 +58,18 @@ const corsOptions = {
     }
     const sanitizedOrigin = origin.replace(/\/$/, "");
     if (allowedOrigins.indexOf(sanitizedOrigin) !== -1) {
+      console.log(`[CORS] Allowed origin: ${origin}`);
       callback(null, true);
     } else {
-      callback(new Error(`Not allowed by CORS: ${origin}`));
+      console.warn(`[CORS] Blocked origin: ${origin}`);
+      callback(null, false);
     }
   },
   credentials: true,
-  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+  methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
   allowedHeaders: ["Content-Type", "Authorization"]
 };
+app.options("*", cors(corsOptions));
 app.use(cors(corsOptions));
 
 // Logging
