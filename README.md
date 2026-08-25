@@ -1,16 +1,6 @@
 # 🩸 Blood Bridge - MERN Stack Blood Bank Application
 
-<p align="center">
-  <img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" alt="React" />
-  <img src="https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white" alt="Node.js" />
-  <img src="https://img.shields.io/badge/Express.js-000000?style=for-the-badge&logo=express&logoColor=white" alt="Express.js" />
-  <img src="https://img.shields.io/badge/MongoDB-47A248?style=for-the-badge&logo=mongodb&logoColor=white" alt="MongoDB" />
-  <br />
-  <img src="https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white" alt="Vercel" />
-  <img src="https://img.shields.io/badge/Railway-0B0D17?style=for-the-badge&logo=railway&logoColor=white" alt="Railway" />
-  <img src="https://img.shields.io/badge/JWT-black?style=for-the-badge&logo=JSON%20web%20tokens" alt="JWT" />
-  <img src="https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge" alt="License" />
-</p>
+
 
 ---
 
@@ -34,21 +24,6 @@ The platform supports four user roles, each with a custom dashboard and restrict
 
 ---
 
-## 🗂️ Table of Contents
-
-1. [Features](#-features)
-2. [Tech Stack](#-tech-stack)
-3. [Folder Structure](#-folder-structure)
-4. [Screenshots](#-screenshots)
-5. [Installation & Setup](#-installation--setup)
-6. [Environment Variables](#-environment-variables)
-7. [Running Locally](#-running-locally)
-8. [Future Enhancements](#-future-enhancements)
-9. [Contributing](#-contributing)
-10. [License](#-license)
-11. [Contact](#-contact)
-
----
 
 ## 🚀 Features
 
@@ -102,34 +77,6 @@ Blood-Bridge/
 ├── routes/                     # Express Router APIs
 └── server.js                   # Main application entry point
 ```
-
----
-
-## 📸 Screenshots
-
-### Login Page
-`[Screenshot Placeholder: Login Page]`
-
-### Register Page
-`[Screenshot Placeholder: Register Page]`
-
-### Donor Dashboard
-`[Screenshot Placeholder: Donor Dashboard]`
-
-### Hospital Dashboard
-`[Screenshot Placeholder: Hospital Dashboard]`
-
-### Organization Dashboard
-`[Screenshot Placeholder: Organization Dashboard]`
-
-### Admin Dashboard
-`[Screenshot Placeholder: Admin Dashboard]`
-
-### Inventory Page
-`[Screenshot Placeholder: Inventory Page]`
-
-### Analytics Page
-`[Screenshot Placeholder: Analytics Page]`
 
 ---
 
@@ -220,14 +167,7 @@ Contributions are welcome! Please follow these steps:
 
 ---
 
-## 📄 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
----
-
 ## ✉️ Contact
 
-* **Email**: your.email@example.com
-* **LinkedIn**: [linkedin.com/in/your-profile](https://linkedin.com/in/your-profile)
-* **GitHub**: [github.com/your-username](https://github.com/your-username)
+* **LinkedIn**: [linkedin](https://www.linkedin.com/in/astha-jha-2oo4/)
+* **GitHub**: [github](https://github.com/astha-2004-code)
