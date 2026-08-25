@@ -44,7 +44,8 @@ app.use(express.json());
 const allowedOrigins = [
   process.env.CLIENT_URL,
   "http://localhost:3000",
-  "http://localhost:5173"
+  "http://localhost:5173",
+  "https://blood-bridge-ekwzbukkt-astha-2004-codes-projects.vercel.app"
 ]
   .filter(Boolean)
   .map((o) => o.replace(/\/$/, ""));
@@ -58,13 +59,16 @@ const corsOptions = {
     if (allowedOrigins.indexOf(sanitizedOrigin) !== -1) {
       callback(null, true);
     } else {
-      callback(new Error(`Not allowed by CORS: ${origin}`));
+      callback(null, false); // Return false instead of throwing an Error to prevent 500 errors
     }
   },
   credentials: true,
-  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+  methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
   allowedHeaders: ["Content-Type", "Authorization"]
 };
+
+// Handle OPTIONS preflight requests globally before other routes
+app.options("*", cors(corsOptions));
 app.use(cors(corsOptions));
 
 // Logging
